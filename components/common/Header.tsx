@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Search, ShoppingBag, User, PhoneCall, Menu, X } from "lucide-react";
 import Image from "next/image";
-import { Category } from "@/types/category";
+import { Category } from "@/types/Category";
 import { Settings } from "@/types/Settings";
 import { Contact } from "@/types/Contact";
 
