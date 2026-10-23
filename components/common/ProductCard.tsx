@@ -67,15 +67,15 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
             
             <CardFooter className="p-4 pt-0 w-full">
-                <div className="w-full pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
-                    <div className="bg-slate-100 hover:bg-slate-200 text-slate-800 py-2 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer select-none transition">
+                <div className="w-full pt-3 border-t border-slate-100 flex flex-col sm:grid sm:grid-cols-2 gap-2">
+                    <div className="bg-slate-200 hover:bg-slate-400 text-slate-800 py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer select-none transition w-full">
                         <ShoppingBag size={14} />
-                        <span className="hidden sm:inline">Add</span> Cart
+                        <span>Add to Cart</span>
                     </div>
 
-                    <div className="bg-[#124170] hover:bg-[#0d3156] text-white py-2 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm cursor-pointer select-none transition">
+                    <div className="bg-[#124170] hover:bg-[#0d3156] text-white py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm cursor-pointer select-none transition w-full">
                         <Zap size={14} />
-                        Buy Now
+                        <span>Buy Now</span>
                     </div>
                 </div>
             </CardFooter>
