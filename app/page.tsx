@@ -3,19 +3,39 @@ import { Banner } from "@/components/home/Banner";
 import { Categories } from "@/components/home/Categories";
 import { CategoryProduts } from "@/components/home/CategoryProduts";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
+import { BannerSkeleton } from "@/components/home/skeleton/BannerSkeleton";
+import { BrandSkeleton } from "@/components/home/skeleton/BrandSkeleton";
+import { CategoriesSkeleton } from "@/components/home/skeleton/CategoriesSkeleton";
+import { ProductSkeleton } from "@/components/home/skeleton/ProductSkeleton";
+import { Suspense } from "react";
 
 export default function Page() {
   return (
     <div>
-        <Banner/>
+        {/* Banner */}
+        <Suspense fallback={<BannerSkeleton />}>
+            <Banner />
+        </Suspense>
 
-        <Categories/>
+        {/* Categories */}
+        <Suspense fallback={<CategoriesSkeleton />}>
+            <Categories />
+        </Suspense>
 
-        <BrandSection/>
+        {/* Brand Section */}
+        <Suspense fallback={<BrandSkeleton />}>
+            <BrandSection />
+        </Suspense>
 
-        <FeaturedProducts/>
+        {/* Featured Products */}
+        <Suspense fallback={<ProductSkeleton />}>
+            <FeaturedProducts />
+        </Suspense>
 
-        <CategoryProduts/>
+        {/* Category Products */}
+        <Suspense fallback={<ProductSkeleton />}>
+            <CategoryProduts />
+        </Suspense>
 
     </div>
   )
