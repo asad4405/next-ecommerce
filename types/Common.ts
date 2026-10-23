@@ -26,3 +26,11 @@ export interface SocialType {
     color: string;
     link: string;
 }
+
+export interface BrandType {
+    id: number;
+    brand_name: string;
+    slug: string;
+    image: string;
+    status: number;
+}

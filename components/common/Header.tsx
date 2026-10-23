@@ -110,7 +110,7 @@ export async function Header() {
                             {categories.map((category: CategoryType) => (
                                 <Link
                                     key={category.id}
-                                    href={`/categories/${category.slug}`}
+                                    href={`/category/${category.slug}`}
                                     className="py-2.5 border-b border-slate-100 hover:text-[#124170] transition"
                                 >
                                     {category.category_name}
@@ -185,7 +185,7 @@ export async function Header() {
                         {categories.map((category: CategoryType) => (
                             <Link
                                 key={category.id}
-                                href={`/categories/${category.slug}`}
+                                href={`/category/${category.slug}`}
                                 className="hover:text-amber-300 transition"
                             >
                                 {category.category_name}

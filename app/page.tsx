@@ -1,3 +1,4 @@
+import { BrandSection } from "@/components/common/Brands";
 import { Banner } from "@/components/home/Banner";
 import { Categories } from "@/components/home/Categories";
 import { CategoryProduts } from "@/components/home/CategoryProduts";
@@ -9,6 +10,8 @@ export default function Page() {
         <Banner/>
 
         <Categories/>
+
+        <BrandSection/>
 
         <FeaturedProducts/>
 
