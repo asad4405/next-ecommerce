@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Search, ShoppingBag, User, PhoneCall, Menu, X } from "lucide-react";
 import Image from "next/image";
-import { Category } from "@/types/Category";
-import { Settings } from "@/types/Settings";
-import { Contact } from "@/types/Contact";
+import { CategoryType } from "@/types/Category";
+import { ContactType, SettingsType } from "@/types/Common";
 
 interface CategoryResponse {
     status: boolean;
-    data: Category[];
+    data: CategoryType[];
     message: string;
 }
 
@@ -18,7 +17,7 @@ export async function Header() {
         { cache: "no-store" }
     );
     const settingsData = await settingRes.json();
-    const settings: Settings = settingsData.data;
+    const settings: SettingsType = settingsData.data;
 
     // Contact API
     const contactRes = await fetch(
@@ -26,7 +25,7 @@ export async function Header() {
         { cache: "no-store" }
     );
     const contactData = await contactRes.json();
-    const contact: Contact = contactData.data;
+    const contact: ContactType = contactData.data;
 
     // Categories API
     const categoriesRes = await fetch(
@@ -34,7 +33,7 @@ export async function Header() {
         { cache: "no-store" }
     );
     const categoriesData: CategoryResponse = await categoriesRes.json();
-    const categories: Category[] = categoriesData.data;
+    const categories: CategoryType[] = categoriesData.data;
 
     // Image base URL
     const imageUrl = process.env.NEXT_API_IMAGE_URL;
@@ -108,7 +107,7 @@ export async function Header() {
                                 Home
                             </Link>
 
-                            {categories.map((category: Category) => (
+                            {categories.map((category: CategoryType) => (
                                 <Link
                                     key={category.id}
                                     href={`/categories/${category.slug}`}
@@ -183,7 +182,7 @@ export async function Header() {
                             Home
                         </Link>
 
-                        {categories.map((category: Category) => (
+                        {categories.map((category: CategoryType) => (
                             <Link
                                 key={category.id}
                                 href={`/categories/${category.slug}`}

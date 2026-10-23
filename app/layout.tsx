@@ -1,9 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google"
 
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/common/Header";
+import { Footer } from "@/components/common/Footer";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 
@@ -26,6 +26,7 @@ export default function RootLayout({
       <body>
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   )

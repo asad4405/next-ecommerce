@@ -52,7 +52,7 @@ export function BannerSlider({ sliders, imageBaseUrl }: BannerSliderProps) {
     };
 
     return (
-        <div className="lg:col-span-2 relative rounded-2xl overflow-hidden shadow-sm h-55 sm:h-87.5 lg:h-[100 bg-slate-100 group">
+        <div className="lg:col-span-2 relative rounded-2xl overflow-hidden shadow-sm h-64 sm:h-80 lg:h-96 bg-slate-100 group">
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
