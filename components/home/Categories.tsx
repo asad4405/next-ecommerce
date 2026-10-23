@@ -1,15 +1,16 @@
-import { Category } from "@/types/Category";
+import { CategoryType } from "@/types/Category";
 import Image from "next/image";
 import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface ApiResponse {
     status: boolean;
-    data: Category[];
+    data: CategoryType[];
     message: string;
 }
 
-// categories API 
-async function getCategories(): Promise<Category[]> {
+// Categories API 
+async function getCategories(): Promise<CategoryType[]> {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/categories`, { cache: "no-store" });
         const data: ApiResponse = await res.json();
@@ -43,34 +44,37 @@ export async function Categories() {
                 </Link>
             </div>
 
-            {/* Categories */}
+            {/* Categories Grid */}
             {categories.length > 0 ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     {categories.map((cat) => (
                         <Link
                             key={cat.id}
                             href={`/category/${cat.slug}`}
-                            className="group bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-[#124170]/40 transition-all duration-300 flex flex-col items-center text-center"
+                            className="group"
                         >
-                            {/* Category Image Wrapper */}
-                            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-3 bg-slate-100 shadow-inner">
-                                <Image
-                                    src={`${imageBaseUrl}/${cat.image}`}
-                                    alt={cat.category_name}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition duration-500"
-                                    unoptimized={true}
-                                />
-                            </div>
+                            <Card className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-[#124170]/40 transition-all duration-300 flex flex-col items-center text-center h-full">
+                                <CardContent className="p-0 flex flex-col items-center w-full">
+                                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-3 bg-slate-100 shadow-inner">
+                                        <Image
+                                            src={`${imageBaseUrl}/${cat.image}`}
+                                            alt={cat.category_name}
+                                            fill
+                                            className="object-cover group-hover:scale-110 transition duration-500"
+                                            unoptimized={true}
+                                        />
+                                    </div>
 
-                            <h3 className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-[#124170] transition line-clamp-1">
-                                {cat.category_name}
-                            </h3>
+                                    <h3 className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-[#124170] transition line-clamp-1">
+                                        {cat.category_name}
+                                    </h3>
+                                </CardContent>
+                            </Card>
                         </Link>
                     ))}
                 </div>
             ) : (
-                <div className="text-center py-8 text-slate-500 text-sm bg-white rounded-2xl border border-slate-200 shadow-sm">
+                <div className="text-center py-8 text-slate-500 text-sm bg-white rounded-2xl border border-slate-100 shadow-sm">
                     No categories found.
                 </div>
             )}

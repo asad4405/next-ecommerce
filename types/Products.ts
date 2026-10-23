@@ -1,10 +1,10 @@
-export interface ProductSliderImage {
+export interface ProductSliderImageType {
   id: number;
   slider_image: string;
   product_id: number;
 }
 
-export interface Product {
+export interface ProductType {
   id: number;
   product_name: string;
   product_code: string;
@@ -17,5 +17,5 @@ export interface Product {
   stock: number;
   short_description: string;
   description: string;
-  sliderimages: ProductSliderImage[];
+  sliderimages: ProductSliderImageType[];
 }

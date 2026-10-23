@@ -5,8 +5,6 @@ import { Category } from "@/types/Category";
 import { Settings } from "@/types/Settings";
 import { Contact } from "@/types/Contact";
 
-
-
 interface CategoryResponse {
     status: boolean;
     data: Category[];
@@ -44,7 +42,6 @@ export async function Header() {
     return (
         <header className="bg-white sticky top-0 z-50 border-b border-slate-200">
 
-            {/* 1. Top Bar */}
             <div className="bg-[#124170] text-slate-200 text-xs py-2 px-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <p className="font-medium text-amber-300">
@@ -64,10 +61,8 @@ export async function Header() {
                 </div>
             </div>
 
-            {/* 2. Main Header */}
             <div className="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
 
-                {/* Mobile Menu & Logo */}
                 <div className="relative flex items-center gap-3 lg:static">
 
                     <input
@@ -78,14 +73,18 @@ export async function Header() {
 
                     <label
                         htmlFor="mobile-menu-checkbox"
-                        className="lg:hidden text-slate-700 p-1 cursor-pointer hover:bg-slate-100 rounded transition select-none"
+                        className="hidden peer-checked:block fixed inset-0 z-40 lg:hidden cursor-default"
+                    />
+
+                    <label
+                        htmlFor="mobile-menu-checkbox"
+                        className="lg:hidden text-slate-700 p-1 cursor-pointer hover:bg-slate-100 rounded transition select-none relative z-50"
                         aria-label="Toggle Menu"
                     >
                         <Menu size={26} className="block peer-checked:hidden" />
                         <X size={26} className="hidden peer-checked:block" />
                     </label>
 
-                    {/* Brand Logo */}
                     <Link href="/" className="flex items-center">
                         <div className="relative h-10 w-auto flex items-center">
                             <Image
@@ -100,7 +99,6 @@ export async function Header() {
                         </div>
                     </Link>
 
-                    {/* Mobile Drawer Menu */}
                     <div className="hidden peer-checked:block absolute top-14 left-0 w-72 bg-white border border-slate-200 shadow-xl p-4 rounded-lg z-50 lg:hidden">
                         <nav className="flex flex-col space-y-1 text-sm font-semibold text-slate-800">
                             <Link
@@ -123,7 +121,6 @@ export async function Header() {
                     </div>
                 </div>
 
-                {/* Search Bar */}
                 <div className="hidden md:flex flex-1 max-w-xl mx-4">
                     <div className="relative w-full">
                         <input
@@ -138,7 +135,6 @@ export async function Header() {
                     </div>
                 </div>
 
-                {/* Right Actions */}
                 <div className="flex items-center space-x-3 sm:space-x-5">
                     <Link
                         href="#"
@@ -166,7 +162,6 @@ export async function Header() {
                 </div>
             </div>
 
-            {/* Mobile Search Input */}
             <div className="px-4 pb-3 md:hidden">
                 <div className="relative w-full">
                     <input
@@ -181,7 +176,6 @@ export async function Header() {
                 </div>
             </div>
 
-            {/* 3. Category Nav Bar */}
             <div className="hidden lg:block bg-[#124170] text-white">
                 <div className="max-w-7xl mx-auto px-4">
                     <nav className="flex items-center space-x-8 text-sm font-semibold py-2.5">
